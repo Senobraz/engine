@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <params>
+        <param type="array">
+            <description>Пользователи</description>
+            <name>users</name>
+            <items>
+                <item name="admin" type="array">
+                    <value name="name">root</value>
+                    <value name="password">397</value>
+                </item>
+            </items>
+        </param>
+    </params>
+</config>

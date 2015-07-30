@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <params>
+        <param type="array">
+            <description>Установленные модули</description>
+            <name>modules</name>
+            <items><item name="banner" type="array"><value name="title">Баннеры</value></item><item name="catalog" type="array"><value name="title">Разделы</value><value name="access">dev</value></item><item name="forms" type="array"><value name="title">Формы</value></item><item name="infoblock" type="array"><value name="title">Инфоблоки</value></item><item name="menus" type="array"><value name="title">Меню</value></item><item name="pages" type="array"><value name="title">Страницы</value></item><item name="seo" type="array"><value name="title">SEO</value></item></items>
+        </param>
+        <param type="array">
+            <description>Установленные служебные модули</description>
+            <name>service_modules</name>
+            <items><item name="modmanager" type="array"><value name="title">SEO</value></item><item name="security" type="array"><value name="title">SEO</value></item></items>
+        </param>
+    </params>
+</config>

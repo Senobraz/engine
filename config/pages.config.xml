@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <params>
+        <param type="array">
+            <description>Плагины</description>
+            <name>plugins</name>
+            <items>
+            </items>
+        </param>
+        <param type="array">
+            <description>Плагины</description>
+            <name>plugins_cm</name>
+            <items>
+            </items>
+        </param>
+        <param type="array">
+            <description>Шаблоны страниц</description>
+            <name>templates</name>
+            <items>
+                <item name="main.tpl.php">Главная страница</item>
+		        <item name="page.tpl.php">Контентная страница</item>
+            </items>
+        </param>
+    </params>
+</config>

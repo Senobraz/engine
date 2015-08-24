@@ -250,11 +250,11 @@ class CatalogModel_Action extends Model_Base
 
     public function getChainSection($id)
     {
-        $ar = array($id);
+        $ar = [];
 
         $ar = $this->chainSection($id, $ar, 1);
       
-        return $ar;
+        return array_reverse($ar);
     }
 
     /**

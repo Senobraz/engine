@@ -1,10 +1,7 @@
 <?
-
 $pager = $args->pager;
-
 if(!$pager)
  return false;
-
 ?>
 <div class="pagination">	
 	<ul class="pager">

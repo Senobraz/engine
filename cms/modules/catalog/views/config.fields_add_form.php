@@ -79,7 +79,7 @@
                 if(form.getForm().isValid())
                 {
                     form.getForm().submit({
-                        url: '/ajax/cm/catalog.config.fields_add',
+                        url: '/ajax/ext/catalog.config.fields_add',
                         method: 'POST',
                         waitTitle: 'Подождите',
                         waitMsg: 'Сохранение...',

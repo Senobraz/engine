@@ -68,13 +68,13 @@ Class PagesController_Menu Extends Controller_Base
         $template->render('menu_plugin');
     }
 
-    public function plugin_cm()
+    public function plugin_ext()
     {
         $template = $this->createTemplate();
 
         $template->args = $this->args;
 
-        $template->render("menu_plugin_cm");
+        $template->render("menu_plugin_system");
     }
 
     public function pages()

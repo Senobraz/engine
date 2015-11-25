@@ -42,7 +42,7 @@
                             style: 'padding: 5px;',
                             handler: function(btn){
                                 Ext.Ajax.request({
-                                    url : '/ajax/cm/catalog.config.table_edit_form',
+                                    url : '/ajax/ext/catalog.config.table_edit_form',
                                     params:
                                     {
                                         table_id: <?=escapeJSON($table_id)?>
@@ -75,7 +75,7 @@
                                     function(btn_conf){
                                         if(btn_conf == 'yes'){
                                             Ext.Ajax.request({
-                                                url : '/ajax/cm/catalog.config.table_del',
+                                                url : '/ajax/ext/catalog.config.table_del',
                                                 params:
                                                 {
                                                     table_id: <?=escapeJSON($table_id)?>,
@@ -120,7 +120,7 @@
                 {
                     var ds = new Ext.data.Store
                     ({
-                        url: '/ajax/cm/catalog.config.fields_records?table_name=<?=$table['table']?>',
+                        url: '/ajax/ext/catalog.config.fields_records?table_name=<?=$table['table']?>',
                         reader: new Ext.data.JsonReader
                         ({
                             autoDestroy: true,
@@ -170,7 +170,7 @@
                                 {
                                     var id = sels[0].id;
                                     Ext.Ajax.request({
-                                        url : '/ajax/cm/catalog.config.fields_edit_form',
+                                        url : '/ajax/ext/catalog.config.fields_edit_form',
                                         params:
                                         {
                                             table_name: <?=escapeJSON($table['table'])?>,
@@ -203,7 +203,7 @@
                         handler: function()
                         {
                             Ext.Ajax.request({
-                                url : '/ajax/cm/catalog.config.fields_add_form',
+                                url : '/ajax/ext/catalog.config.fields_add_form',
                                 params:
                                 {
                                     table_name: <?=escapeJSON($table['table'])?>
@@ -240,7 +240,7 @@
 
                     var ds = new Ext.data.Store
                     ({
-                        url: '/ajax/cm/catalog.config.editors_records?table_id=<?=$table_id?>',
+                        url: '/ajax/ext/catalog.config.editors_records?table_id=<?=$table_id?>',
                         reader: new Ext.data.JsonReader
                         ({
                             autoDestroy: true,
@@ -299,7 +299,7 @@
                                 {
                                     var id = sels[0].id;
                                     Ext.Ajax.request({
-                                        url : '/ajax/cm/catalog.config.editors_edit_form',
+                                        url : '/ajax/ext/catalog.config.editors_edit_form',
                                         params:
                                         {
                                             table_id: <?=escapeJSON($table_id)?>,
@@ -333,7 +333,7 @@
                         handler: function()
                         {
                             Ext.Ajax.request({
-                                url : '/ajax/cm/catalog.config.editors_edit_form',
+                                url : '/ajax/ext/catalog.config.editors_edit_form',
                                 params:
                                 {
                                     table_id: <?=escapeJSON($table_id)?>,
@@ -369,7 +369,7 @@
                             sm.selectRow(index-1);
 
                             Ext.Ajax.request({
-                                url : '/ajax/cm/catalog.config.editors_pos',
+                                url : '/ajax/ext/catalog.config.editors_pos',
                                 params:
                                 {
                                     table_id: <?=escapeJSON($table_id)?>,
@@ -399,7 +399,7 @@
                             sm.selectRow(index+1);
 
                             Ext.Ajax.request({
-                                url : '/ajax/cm/catalog.config.editors_pos',
+                                url : '/ajax/ext/catalog.config.editors_pos',
                                 params:
                                 {
                                     table_id: <?=escapeJSON($table_id)?>,

@@ -1,16 +1,15 @@
 <?php
+
 /**
  *
  */
-
 class MenusModel_Menus extends Model_Base
 {
     private $table_item;
-    
+
     public function getTableItem()
     {
-        if(!$this->table_item)
-        {
+        if (!$this->table_item) {
             $this->table_item = new Table("menus_item");
         }
         return $this->table_item;
@@ -24,17 +23,16 @@ class MenusModel_Menus extends Model_Base
 
     public function getMenu($menus_name)
     {
-        return $this->getTable()->getEntityAlias($menus_name,"name");
+        return $this->getTable()->getEntityAlias($menus_name, "name");
     }
 
     public function delete($menu)
     {
-        $this->table->execute("delete from menus_item where menus_id=".$menu->id);
+        $this->table->execute("delete from menus_item where menus_id=" . $menu->id);
 
         $errorInfo = $this->table->errorInfo;
 
-        if(!$errorInfo)
-        {
+        if (!$errorInfo) {
             $this->table->delete($menu);
 
             $errorInfo = $this->table->errorInfo;
@@ -43,48 +41,58 @@ class MenusModel_Menus extends Model_Base
         return $errorInfo;
     }
 
-    public function getItems($menus_id,$parent_id=null)
+    public function getItems($menus_id, $parent_id = null)
     {
-        if($parent_id === null)
-        {
-            $rows = $this->getTable()->select("select p1.*, count(p1.id) as count, p2.id as id2 from menus_item p1 left outer join menus_item p2 on ( p2.parent_id=p1.id) where p1.parent_id is null and p1.menus_id=:menus_id group by p1.id order by p1.position",array("menus_id"=>$menus_id));
-        }
-        else
-        {
-            $rows = $this->getTable()->select("select p1.*, count(p1.id) as count, p2.id as id2 from menus_item p1 left outer join menus_item p2 on ( p2.parent_id=p1.id) where p1.parent_id=:parent_id and p1.menus_id=:menus_id group by p1.id order by p1.position",array("menus_id"=>$menus_id,"parent_id"=>$parent_id));
+        if ($parent_id === null) {
+            $rows = $this->getTable()->select("select p1.*, count(p1.id) as count, p2.id as id2 from menus_item p1 left outer join menus_item p2 on ( p2.parent_id=p1.id) where p1.parent_id is null and p1.menus_id=:menus_id group by p1.id order by p1.position", array("menus_id" => $menus_id));
+        } else {
+            $rows = $this->getTable()->select("select p1.*, count(p1.id) as count, p2.id as id2 from menus_item p1 left outer join menus_item p2 on ( p2.parent_id=p1.id) where p1.parent_id=:parent_id and p1.menus_id=:menus_id group by p1.id order by p1.position", array("menus_id" => $menus_id, "parent_id" => $parent_id));
         }
         return $rows;
     }
 
-    public function getMenuItems($menus_id,$parent_id=null)
+    public function getMenuItems($menus_id, $parent_id = null)
     {
         $menuItems = array();
 
-        $items = $this->getItems($menus_id,$parent_id);
+        $items = $this->getItems($menus_id, $parent_id);
 
         $uri_orig = $_SERVER['REQUEST_URI'];
         $uris = explode('?', $uri_orig);
         $url = $uris[0];
 
-        $url2 = '/'.Utils::getVar('alias').'.html';
+        $url2 = '/' . Utils::getVar('alias') . '.html';
 
         $pages = $this->getPages();
 
-        foreach($items as $row)
-        {
-            if($row['visible'] != 1) continue;
+        foreach ($items as $row) {
+            if ($row['visible'] != 1) continue;
 
             $href = $row['type_link'];
 
             $row['href'] = $href;
 
-            if($url == $href || $url2 == $href || ($row['type_id'] && in_array($href,$pages)))
-            {
+            if ($url == $href || $url2 == $href || ($row['type_id'] && in_array($href, $pages))) {
                 $row['active'] = true;
-            }
-            else
-            {
+            } else {
                 $row['active'] = false;
+            }
+
+            /** меню 2 уровня - доработать */
+            $itemsSub = $this->getItems($menus_id, $row['id']);
+
+            foreach ($itemsSub as $rowSub) {
+                $href = $rowSub['type_link'];
+
+                $rowSub['href'] = $href;
+
+                if ($url == $href || $url2 == $href || ($rowSub['type_id'] && in_array($href, $pages))) {
+                    $rowSub['active'] = true;
+                } else {
+                    $rowSub['active'] = false;
+                }
+
+                $row['items'][] = $rowSub;
             }
 
             $menuItems[] = $row;
@@ -93,7 +101,7 @@ class MenusModel_Menus extends Model_Base
         return $menuItems;
     }
 
-    public function getItem($id=-1)
+    public function getItem($id = -1)
     {
         $table = $this->getTableItem();
 
@@ -118,29 +126,26 @@ class MenusModel_Menus extends Model_Base
         return $table->errorInfo;
     }
 
-    public function reorderItems($item,$index)
+    public function reorderItems($item, $index)
     {
         $rows = $this->getItems($item->menus_id, $item->parent_id);
 
         $this->reorder("menus_item", $rows, $item->id, $index);
     }
 
-    public function getPages($alias=null)
+    public function getPages($alias = null)
     {
         $pages[] = array();
         $alias = $alias ? $alias : Utils::getVar('alias');
-        if($alias)
-        {
+        if ($alias) {
             $table = new Table("pages");
             $page = $table->getEntityAlias($alias);
-            if($page)
-            {
+            if ($page) {
                 $parent_id = $page->parent_id;
-                while($parent_id)
-                {
+                while ($parent_id) {
                     $parent_page = $table->getEntity($parent_id);
                     $parent_id = $parent_page->parent_id;
-                    $pages[] = '/'.$parent_page->alias.'.html';
+                    $pages[] = '/' . $parent_page->alias . '.html';
                 }
             }
         }

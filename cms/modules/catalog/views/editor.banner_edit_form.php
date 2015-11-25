@@ -48,7 +48,7 @@
                 var form = win.getComponent('form');
                 
                 form.getForm().submit({
-                    url: '/ajax/cm/catalog.editor.save_banner',
+                    url: '/ajax/ext/catalog.editor.save_banner',
                     method: 'POST',
                     waitTitle: 'Подождите',
                     waitMsg: 'Сохранение...',

@@ -114,7 +114,7 @@
                                     }
                                 },
                                 store: new Ext.data.Store({
-                                    url: '/ajax/cm/catalog.cm.select',
+                                    url: '/ajax/ext/catalog.ext.select',
                                     baseParams:
                                     {
                                         table_id: '<?php echo $table_id?>',
@@ -201,7 +201,7 @@
                                             Editor.uploadWindow({
                                                 targetId: this.id,
                                                 id: '<?php echo $section_id?>/position/<?php echo $name?>/<?php echo $position_id ?>',
-                                                url: '/ajax/cm/catalog.cm.uploadimage',
+                                                url: '/ajax/ext/catalog.ext.uploadimage',
                                                 success: function(result)
                                                 {
                                                     var id_f = form.getForm().findField('id');
@@ -251,7 +251,7 @@
                                                     Editor.uploadWindow({
                                                         targetId: this.id,
                                                         id: '<?php echo $section_id ?>/position/<?php echo $name?>/<?php echo $position_id ?>',
-                                                        url: '/ajax/cm/catalog.cm.uploadfile',
+                                                        url: '/ajax/ext/catalog.ext.uploadfile',
                                                         title: 'Загрузить файл',
                                                         emptyText: 'Выберите файл...',
                                                         success: function(result)
@@ -276,7 +276,7 @@
                                                             if(btn2 == 'yes')
                                                             {
                                                                 Ext.Ajax.request({
-                                                                    url : '/ajax/cm/catalog.cm.uploadfile_delete',
+                                                                    url : '/ajax/ext/catalog.ext.uploadfile_delete',
                                                                     method: 'POST',
                                                                     params:
                                                                     {
@@ -418,7 +418,7 @@
                 } ?>
 
                 form.getForm().submit({
-                    url: '/ajax/cm/catalog.cm.save_position',
+                    url: '/ajax/ext/catalog.ext.save_position',
                     method: 'POST',
                     waitTitle: 'Подождите',
                     waitMsg: 'Сохранение...',

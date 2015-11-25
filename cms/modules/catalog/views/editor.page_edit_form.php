@@ -117,7 +117,7 @@
                 }
 
                 form.getForm().submit({
-                    url: '/ajax/cm/catalog.editor.save_page',
+                    url: '/ajax/ext/catalog.editor.save_page',
                     method: 'POST',
                     waitTitle: 'Подождите',
                     waitMsg: 'Сохранение...',

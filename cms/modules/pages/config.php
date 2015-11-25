@@ -41,10 +41,10 @@ class PagesConfig extends Config_Base
         "submenu"=>array("name"=>"submenu","label"=>"Показывать в подменю","mod"=>"pages.menu.plugin","plug"=>false)
     );
 
-    public $plugins_cm = array(
-        "cloudtags"=>array("name"=>"cloudtags","label"=>"Облако тегов","mod"=>"cloudtags.cm.plugin","plug"=>true),
-        "gallery"=>array("name"=>"gallery","label"=>"Галерея","mod"=>"gallery.cm.plugin","plug"=>true),
-//        "htmlblock"=>array("name"=>"htmlblock","label"=>"HTML блок","mod"=>"htmlblock.cm.plugin","plug"=>true),
+    public $plugins_ext = array(
+        "cloudtags"=>array("name"=>"cloudtags","label"=>"Облако тегов","mod"=>"cloudtags.ext.plugin","plug"=>true),
+        "gallery"=>array("name"=>"gallery","label"=>"Галерея","mod"=>"gallery.ext.plugin","plug"=>true),
+//        "htmlblock"=>array("name"=>"htmlblock","label"=>"HTML блок","mod"=>"htmlblock.ext.plugin","plug"=>true),
         "submenu"=>array("name"=>"submenu","label"=>"показывать подменю","mod"=>"pages.menu.plugin_cm","plug"=>true)
     );
 

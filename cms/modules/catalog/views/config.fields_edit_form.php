@@ -85,7 +85,7 @@
                 if(form.getForm().isValid())
                 {
                     form.getForm().submit({
-                        url: '/ajax/cm/catalog.config.fields_edit',
+                        url: '/ajax/ext/catalog.config.fields_edit',
                         method: 'POST',
                         waitTitle: 'Подождите',
                         waitMsg: 'Сохранение...',
@@ -117,7 +117,7 @@
                     function(btn_conf){
                         if(btn_conf == 'yes'){
                             Ext.Ajax.request({
-                                url : '/ajax/cm/catalog.config.fields_del',
+                                url : '/ajax/ext/catalog.config.fields_del',
                                 params:
                                 {
                                     table_name: <?=escapeJSON($table_name)?>,

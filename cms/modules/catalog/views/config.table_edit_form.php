@@ -104,7 +104,7 @@
                 if(form.getForm().isValid())
                 {
                     form.getForm().submit({
-                        url: '/ajax/cm/catalog.config.table_save',
+                        url: '/ajax/ext/catalog.config.table_save',
                         method: 'POST',
                         waitTitle: 'Подождите',
                         waitMsg: 'Сохранение...',

@@ -121,7 +121,7 @@
                                             Editor.uploadWindow({
                                                 targetId: this.id,
                                                 id: '<?php echo $section_id?>/section/<?php echo $name?>/<?php echo $section_id ?>',
-                                                url: '/ajax/cm/catalog.cm.uploadimage',
+                                                url: '/ajax/ext/catalog.ext.uploadimage',
                                                 success: function(result)
                                                 {
                                                     var id_f = form.getForm().findField('id');
@@ -165,7 +165,7 @@
                                             Editor.uploadWindow({
                                                 targetId: this.id,
                                                 id: '<?php echo $section_id ?>/section/<?php echo $name?>/<?php echo $section_id ?>',
-                                                url: '/ajax/cm/catalog.cm.uploadfile',
+                                                url: '/ajax/ext/catalog.ext.uploadfile',
                                                 title: 'Загрузить файл',
                                                 emptyText: 'Выберите файл...',
                                                 success: function(result)
@@ -288,7 +288,7 @@
                 } ?>
 
                 form.getForm().submit({
-                    url: '/ajax/cm/catalog.cm.save_table_section',
+                    url: '/ajax/ext/catalog.ext.save_table_section',
                     method: 'POST',
                     waitTitle: 'Подождите',
                     waitMsg: 'Сохранение...',

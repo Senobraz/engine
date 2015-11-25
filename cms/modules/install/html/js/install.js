@@ -43,7 +43,7 @@ var App  = function()
                                     {
                                         xtype: 'displayfield',
                                         hideLabel: true,
-                                        value: 'Добро пожаловать в программу установки CMS',
+                                        value: 'Добро пожаловать в программу установки cms',
                                         style: 'margin-bottom: 18px'
                                     },
                                     {
@@ -60,7 +60,7 @@ var App  = function()
                         layout:'fit',
                         width:600,
                         height:500,
-                        title: 'Установка CMS',
+                        title: 'Установка cms',
                         closable : false,
                         resizable: true,
                         border: false,
@@ -150,10 +150,10 @@ var App  = function()
 
                     var finish = function() {
                         var form = win.getComponent('form');
-                        var value = form.getForm().findField('run-cm').checked;
+                        var value = form.getForm().findField('run-ext').checked;
                         if(value)
                         {
-                            window.location = "/cm/";
+                            window.location = "/ext/";
                         }
                         else
                         {

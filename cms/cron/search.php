@@ -5,7 +5,7 @@ putenv("DOCUMENT_ROOT=$DOCUMENT_ROOT");
 
 /*include $DOCUMENT_ROOT."/config.php";
 
-include $DOCUMENT_ROOT."/cms.php";
+include $DOCUMENT_ROOT."/acms.php";
 
 $table = new Table('sphider_sites','site_id');
 
@@ -17,7 +17,7 @@ foreach($rows as $row)
     $soption = 'full';
     $reindex = 1;
 
-    include($DOCUMENT_ROOT.'/cms/modules/search/html/sphider-utf/admin/spider.php');
+    include($DOCUMENT_ROOT.'/acms/modules/search/html/sphider-utf/admin/spider.php');
 
     break;
 }*/

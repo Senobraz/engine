@@ -429,8 +429,8 @@ class simple_html_dom_node
             case HDOM_TYPE_COMMENT: return '';
             case HDOM_TYPE_UNKNOWN: return '';
         }
-        if (strcasecmp($this->tag, 'script')===0) return '';
-        if (strcasecmp($this->tag, 'style')===0) return '';
+        if (strcaseacmp($this->tag, 'script')===0) return '';
+        if (strcaseacmp($this->tag, 'style')===0) return '';
 
         $ret = '';
         // In rare cases, (always node type 1 or HDOM_TYPE_ELEMENT - observed for some span tags, and some p tags) $this->nodes is set to NULL.
@@ -625,7 +625,7 @@ class simple_html_dom_node
                 if (is_object($debugObject)) {$debugObject->debugLog(2, "after match: " . ($check ? "true" : "false"));}
 
                 // handle multiple class
-                if (!$check && strcasecmp($key, 'class')===0) {
+                if (!$check && strcaseacmp($key, 'class')===0) {
                     foreach (explode(' ',$node->attr[$key]) as $k) {
                         // Without this, there were cases where leading, trailing, or double spaces lead to our comparing blanks - bad form.
                         if (!empty($k)) {
@@ -778,10 +778,10 @@ class simple_html_dom_node
         }
         if (is_object($debugObject)) {$debugObject->debugLog(3, "source charset: " . $sourceCharset . " target charaset: " . $targetCharset);}
 
-        if (!empty($sourceCharset) && !empty($targetCharset) && (strcasecmp($sourceCharset, $targetCharset) != 0))
+        if (!empty($sourceCharset) && !empty($targetCharset) && (strcaseacmp($sourceCharset, $targetCharset) != 0))
         {
             // Check if the reported encoding could have been incorrect and the text is actually already UTF-8
-            if ((strcasecmp($targetCharset, 'UTF-8') == 0) && ($this->is_utf8($text)))
+            if ((strcaseacmp($targetCharset, 'UTF-8') == 0) && ($this->is_utf8($text)))
             {
                 $converted_text = $text;
             }

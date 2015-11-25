@@ -23,7 +23,7 @@
                             text: 'Таблицу раздела',
                             handler: function(){
                                 Ext.Ajax.request({
-                                    url : '/ajax/cm/catalog.config.table_edit_form',
+                                    url : '/ajax/ext/catalog.config.table_edit_form',
                                     params:
                                     {
                                         create: 'section'
@@ -47,7 +47,7 @@
                             text: 'Таблицу позиций',
                             handler: function(){
                                 Ext.Ajax.request({
-                                    url : '/ajax/cm/catalog.config.table_edit_form',
+                                    url : '/ajax/ext/catalog.config.table_edit_form',
                                     params:
                                     {
                                         create: 'position'
@@ -98,7 +98,7 @@
                     rootVisible: false,
                     loader: new Ext.tree.TreeLoader(
                     {
-                        dataUrl: '/ajax/cm/catalog.config.tree_tables'
+                        dataUrl: '/ajax/ext/catalog.config.tree_tables'
                     }),
                     root: new Ext.tree.AsyncTreeNode({id:'_root'}),
                     listeners:
@@ -124,7 +124,7 @@
                                         afterrender: function(comp)
                                         {
                                             Ext.Ajax.request({
-                                                url : '/ajax/cm/catalog.config.editor_item',
+                                                url : '/ajax/ext/catalog.config.editor_item',
                                                 method: 'POST',
                                                 params:
                                                 {

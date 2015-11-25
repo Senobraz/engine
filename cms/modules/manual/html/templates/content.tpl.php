@@ -7,7 +7,7 @@ $params = array_pad($params,2,null);
 
 if($params[0] == 'tree')
 {
-    mod('manual.cm.tree','inner=1');
+    mod('manual.ext.tree','inner=1');
 }
 else if($params[0] == 'content')
 {

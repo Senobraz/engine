@@ -90,7 +90,7 @@ if($parent_section && $parent_section->leaf == 1){
                 if(form.getForm().isValid())
                 {
                     form.getForm().submit({
-                        url: '/ajax/cm/catalog.cm.add_section',
+                        url: '/ajax/ext/catalog.ext.add_section',
                         method: 'POST',
                         waitTitle: 'Подождите',
                         waitMsg: 'Сохранение...',

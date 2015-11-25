@@ -227,7 +227,7 @@
                 if(form.getForm().isValid())
                 {
                     form.getForm().submit({
-                        url: '/ajax/cm/catalog.config.editors_edit',
+                        url: '/ajax/ext/catalog.config.editors_edit',
                         method: 'POST',
                         waitTitle: 'Подождите',
                         waitMsg: 'Сохранение...',
@@ -259,7 +259,7 @@
                     function(btn_conf){
                         if(btn_conf == 'yes'){
                             Ext.Ajax.request({
-                                url : '/ajax/cm/catalog.config.editors_del',
+                                url : '/ajax/ext/catalog.config.editors_del',
                                 params:
                                 {
                                     table_id: <?=escapeJSON($table_id)?>,

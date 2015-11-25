@@ -24,7 +24,7 @@
             xtype: 'checkbox',
             hideLabel: true,
             boxLabel: 'запустить контент менеджер',
-            name: 'run-cm',
+            name: 'run-ext',
             inputValue: 1,
             checked: true
         }

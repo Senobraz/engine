@@ -27,7 +27,7 @@ var Editor  = function()
         showEditor : function(options)
         {
             Ext.Ajax.request({
-                url : '/ajax/cm/catalog.editor.position_edit_form',
+                url : '/ajax/ext/catalog.editor.position_edit_form',
                 method: 'POST',
                 params:
                 {
@@ -45,7 +45,7 @@ var Editor  = function()
         showEditorSection : function(options)
         {
             Ext.Ajax.request({
-                url : '/ajax/cm/catalog.editor.section_edit_form',
+                url : '/ajax/ext/catalog.editor.section_edit_form',
                 method: 'POST',
                 params:
                 {
@@ -60,7 +60,7 @@ var Editor  = function()
         showEditorPage : function(options)
         {
             Ext.Ajax.request({
-                url : '/ajax/cm/catalog.editor.page_edit_form',
+                url : '/ajax/ext/catalog.editor.page_edit_form',
                 method: 'POST',
                 params:
                 {
@@ -75,7 +75,7 @@ var Editor  = function()
         showEditorBanner : function(options)
         {
             Ext.Ajax.request({
-                url : '/ajax/cm/catalog.editor.banner_edit_form',
+                url : '/ajax/ext/catalog.editor.banner_edit_form',
                 method: 'POST',
                 params:
                 {
@@ -90,7 +90,7 @@ var Editor  = function()
         addSection : function(options)
         {
             Ext.Ajax.request({
-                url : '/ajax/cm/catalog.editor.section_add_form',
+                url : '/ajax/ext/catalog.editor.section_add_form',
                 method: 'POST',
                 params:
                 {
@@ -110,7 +110,7 @@ var Editor  = function()
                     if(btn == 'yes')
                     {
                         Ext.Ajax.request({
-                            url : '/ajax/cm/catalog.cm.delete_position',
+                            url : '/ajax/ext/catalog.ext.delete_position',
                             method: 'POST',
                             params:
                             {
@@ -142,7 +142,7 @@ var Editor  = function()
                     if(btn == 'yes')
                     {
                         Ext.Ajax.request({
-                            url : '/ajax/cm/catalog.cm.delete_section',
+                            url : '/ajax/ext/catalog.ext.delete_section',
                             method: 'POST',
                             params:
                             {

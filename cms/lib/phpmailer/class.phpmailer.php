@@ -538,9 +538,9 @@ class PHPMailer {
    */
   protected function SendmailSend($header, $body) {
     if ($this->Sender != '') {
-      $sendmail = sprintf("%s -oi -f %s -t", escapeshellcmd($this->Sendmail), escapeshellarg($this->Sender));
+      $sendmail = sprintf("%s -oi -f %s -t", escapeshellacmd($this->Sendmail), escapeshellarg($this->Sender));
     } else {
-      $sendmail = sprintf("%s -oi -t", escapeshellcmd($this->Sendmail));
+      $sendmail = sprintf("%s -oi -t", escapeshellacmd($this->Sendmail));
     }
     if(!@$mail = popen($sendmail, 'w')) {
       throw new phpmailerException($this->Lang('execute') . $this->Sendmail, self::STOP_CRITICAL);
